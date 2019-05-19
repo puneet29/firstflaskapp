@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>FlaskApp</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">First FlaskApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about/">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                        Login
+                    </button>&nbsp;
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
+                        Signup
+                    </button>
+
+                    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                        aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group" style="margin-bottom: 5px">
+                                            <label for="loginInputEmail">Email address</label> &nbsp;
+                                            <input type="email" class="form-control" id="loginInputEmail"
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="loginInputPassword">Password</label>&nbsp;
+                                            <input type="password" class="form-control" id="loginInputPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Log In</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog"
+                        aria-labelledby="signupModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group" style="margin-bottom: 5px">
+                                            <label for="signupInputEmail">Email address</label> &nbsp;
+                                            <input type="email" class="form-control" id="signupInputEmail"
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="signupInputPassword">Password</label>&nbsp;
+                                            <input type="password" class="form-control" id="signupInputPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                        <label for="signupInputPasswordConfirm">Confirm Password</label>&nbsp;
+                                        <input type="password" class="form-control" id="signupInputPasswordConfirm"
+                                            placeholder="Re-enter Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </nav>
+        {% block body %}
+        {% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+
+</html>

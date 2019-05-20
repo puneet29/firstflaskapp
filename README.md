@@ -2,7 +2,7 @@
 
 A good start to making your own first flask app. CSS and JS implementation taken from Bootstrap.
 
-## How to install
+## How to get started
 
 1. Clone the repository:
 

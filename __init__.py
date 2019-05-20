@@ -17,6 +17,9 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html')
 
+@app.route('/dashboard/')
+def dashboard():
+    return render_template('dashboard.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

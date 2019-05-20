@@ -42,10 +42,16 @@ A good start to making your own first flask app. CSS and JS implementation taken
         . venv/bin/activate
         ```
 
-5. Run Flask app:
+5. Install flask:
+
+    ```bash
+    pip install flask
+    ```
+
+6. Run Flask app:
 
     ```bash
     python __init__.py
     ```
 
-6. Open the IP address given in cmd or bash window.
+7. Open the IP address given in cmd or bash window.

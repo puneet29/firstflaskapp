@@ -45,7 +45,7 @@ A good start to making your own first flask app. CSS and JS implementation taken
 5. Install flask:
 
     ```bash
-    pip install flask
+    pip install Flask
     ```
 
 6. Run Flask app:

@@ -5,18 +5,41 @@
 {% endblock %}
 
 {% block body %}
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" href="#active">Active</a>
+        <a class="nav-link active" id="spoj-tab" data-toggle="tab" href="#spoj" role="tab" aria-controls="spoj"
+            aria-selected="true">spoj</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" id="notebooks-tab" data-toggle="tab" href="#notebooks" role="tab" aria-controls="notebooks"
+            aria-selected="false">Notebooks</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" id="udacityproj-tab" data-toggle="tab" href="#udacityproj" role="tab"
+            aria-controls="udacityproj" aria-selected="false">Android Udacity Projects</a>
     </li>
 </ul>
+<div class="tab-content" id="myTabContent" style="margin-top: 2%">
+    <div class="tab-pane fade show active" id="spoj" role="tabpanel" aria-labelledby="spoj-tab">
+        <ul>
+            {% for t in TOP_DICT["spoj"] %}
+            <li><a href="{{t[1]}}">{{t[0]}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="notebooks" role="tabpanel" aria-labelledby="notebooks-tab">
+        <ul>
+            {% for t in TOP_DICT["notebooks"] %}
+            <li><a href="{{t[1]}}">{{t[0]}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="udacityproj" role="tabpanel" aria-labelledby="udacityproj-tab">
+        <ul>
+            {% for t in TOP_DICT["udacityproj"] %}
+            <li><a href="{{t[1]}}">{{t[0]}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

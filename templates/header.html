@@ -28,75 +28,8 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                        Login
-                    </button>&nbsp;
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
-                        Signup
-                    </button>
-
-                    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-                        aria-labelledby="loginModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group" style="margin-bottom: 5px">
-                                            <label for="loginInputEmail">Email address</label> &nbsp;
-                                            <input type="email" class="form-control" id="loginInputEmail"
-                                                aria-describedby="emailHelp" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="loginInputPassword">Password</label>&nbsp;
-                                            <input type="password" class="form-control" id="loginInputPassword"
-                                                placeholder="Password">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Log In</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog"
-                        aria-labelledby="signupModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group" style="margin-bottom: 5px">
-                                            <label for="signupInputEmail">Email address</label> &nbsp;
-                                            <input type="email" class="form-control" id="signupInputEmail"
-                                                aria-describedby="emailHelp" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="signupInputPassword">Password</label>&nbsp;
-                                            <input type="password" class="form-control" id="signupInputPassword"
-                                                placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="signupInputPasswordConfirm">Confirm Password</label>&nbsp;
-                                            <input type="password" class="form-control" id="signupInputPasswordConfirm"
-                                                placeholder="Re-enter Password">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Sign Up</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <a class="btn btn-primary" href="/login/" role="button">Login</a>&nbsp;
+                    <a class="btn btn-primary" href="/signup/" role="button">Signup</a>
                 </form>
             </div>
         </nav>

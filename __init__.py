@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from content_management import Content
+from dbconnect import connection
 
 app = Flask(__name__)
 TOP_DICT = Content()

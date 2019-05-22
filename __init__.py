@@ -46,6 +46,26 @@ def dashboard():
     return render_template('dashboard.html', TOP_DICT=TOP_DICT)
 
 
+def login_required(f):
+    def wraps(*args, **kwargs):
+        if 'logged_in' in session:
+            return(f(*args, **kwargs))
+        else:
+            flash("You need to login first.")
+            return(redirect(url_for("login_page")))
+
+    return(wraps)
+
+
+@app.route('/logout/')
+@login_required
+def logout():
+    session.clear()
+    flash('You have been logged out!')
+    gc.collect()
+    return(redirect(url_for('homepage')))
+
+
 @app.route('/login/', methods=["GET", "POST"])
 def login_page():
 

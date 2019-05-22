@@ -51,25 +51,30 @@ def login_page():
 
     error = ''
     try:
+        c, conn = connection()
+        if(request.method == "POST"):
+            c.execute('SELECT * FROM users WHERE username=(%s)', (request.form['username'], ))
+            data = c.fetchone()
 
-        if (request.method == "POST"):
+            if(data != None):
+                if(sha256_crypt.verify(request.form['password'], data[2])):
+                    session['logged_in'] = True
+                    session['username'] = request.form['username']
 
-            attempted_username = request.form['username']
-            attempted_password = request.form['password']
+                    flash("You are now logged in!")
+                    return(redirect(url_for("dashboard")))
 
-            # flash(attempted_username)
-            # flash(attempted_password)
-
-            if attempted_username == "admin" and attempted_password == "password":
-                return redirect(url_for('dashboard'))
-
+                else:
+                    error = "Invalid Credentials. Please try again!"
             else:
-                error = "Invalid credentials. Try Again."
+                error = "User doesn't exist."
 
-        return render_template("login.html", error=error)
+        gc.collect()
 
+        return(render_template("login.html", error=error))
     except Exception as e:
         # flash(e)
+        error = "Some error occurred. Please try again! Raise a descriptive issue at https://www.github.com/puneetsaini/firstflaskapp"
         return render_template("login.html", error=error)
 
 
@@ -105,7 +110,7 @@ def signup_page():
         return(render_template('signup.html', form=form))
 
     except Exception as e:
-        #return(str(e))
+        # return(str(e))
         return(render_template("500.html"))
 
 

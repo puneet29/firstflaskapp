@@ -28,8 +28,12 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a class="btn btn-primary" href="/login/" role="button">Login</a>&nbsp;
-                    <a class="btn btn-primary" href="/signup/" role="button">Signup</a>
+                    {% if 'logged_in' not in session %}
+                        <a class="btn btn-primary" href="/login/" role="button">Login</a>&nbsp;
+                        <a class="btn btn-primary" href="/signup/" role="button">Signup</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="/logout/" role="button">Logout</a>
+                    {% endif %}
                 </form>
             </div>
         </nav>

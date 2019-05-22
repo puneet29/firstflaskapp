@@ -4,6 +4,7 @@ from dbconnect import connection
 from wtforms import Form, TextField, PasswordField, validators, BooleanField
 from passlib.hash import sha256_crypt
 import gc
+from functools import wraps
 
 
 class RegistrationForm(Form):
@@ -41,20 +42,22 @@ def server_error(e):
     return render_template('500.html')
 
 
-@app.route('/dashboard/')
-def dashboard():
-    return render_template('dashboard.html', TOP_DICT=TOP_DICT)
-
-
 def login_required(f):
-    def wraps(*args, **kwargs):
+    @wraps(f)
+    def wrap(*args, **kwargs):
         if 'logged_in' in session:
             return(f(*args, **kwargs))
         else:
             flash("You need to login first.")
             return(redirect(url_for("login_page")))
 
-    return(wraps)
+    return(wrap)
+
+
+@app.route('/dashboard/')
+@login_required
+def dashboard():
+    return render_template('dashboard.html', TOP_DICT=TOP_DICT)
 
 
 @app.route('/logout/')
@@ -73,7 +76,8 @@ def login_page():
     try:
         c, conn = connection()
         if(request.method == "POST"):
-            c.execute('SELECT * FROM users WHERE username=(%s)', (request.form['username'], ))
+            c.execute('SELECT * FROM users WHERE username=(%s)',
+                      (request.form['username'], ))
             data = c.fetchone()
 
             if(data != None):

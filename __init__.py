@@ -67,7 +67,7 @@ def login_page():
                 else:
                     error = "Invalid Credentials. Please try again!"
             else:
-                error = "User doesn't exist."
+                error = "Invalid Credentials. Please try again!"
 
         gc.collect()
 
